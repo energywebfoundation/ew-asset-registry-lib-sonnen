@@ -1,0 +1,60 @@
+{
+  "name": "ew-asset-registry-lib-sonnen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/js/src/index.js",
+  "types": "dist/js/src/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start-test-backend": "node node_modules/ew-utils-testbackend/index.js",
+    "test": "npm run build-schemas && npm run build-ts && mocha dist/js/src/test/ --timeout 60000",
+    "start-ganache": "ganache-cli -m 'chalk park staff buzz chair purchase wise oak receive avoid avoid home' -g 0 -l 80000000 -e 1000000 -a 20",
+    "testlight": "npm run build-ts && mocha build/ts/test/",
+    "debug-light-test": "npm run build-ts && mocha --inspect-brk build/ts/test/",
+    "setup-SS": "npm run build-ts && node build/ts/utils/deployment/secretStore",
+    "build-and-deploy": "npm run build && npm run deploy-contracts",
+    "deploy-contracts": "node build/ts/utils/deployment/startMigrate",
+    "build": "npm run build-schemas && npm run build-ts",
+    "precompile-contracts": "rm -rf build/contracts",
+    "compile-contracts": "node build/ts/utils/deployment/compile",
+    "prebuild-ts": "rm -rf build/ts",
+    "build-ts": "rm -rf dist/js && node_modules/typescript/bin/tsc",
+    "prebuild-schemas": "rm -rf dist/schemas && mkdir -p dist/schemas && rm -rf schemas && mkdir schemas",
+    "build-schemas": "npm run build-schema:AssetPropertiesOffChain && npm run build-schema:ProducingAssetPropertiesOffChain && cp -R schemas dist/schemas",
+    "build-schema:AssetPropertiesOffChain": "typescript-json-schema --ignoreErrors --required src/blockchain-facade/Asset.ts OffChainProperties > schemas/AssetPropertiesOffChain.schema.json ",
+    "build-schema:ProducingAssetPropertiesOffChain": "typescript-json-schema --ignoreErrors --required src/blockchain-facade/ProducingAsset.ts OffChainProperties > schemas/ProducingAssetPropertiesOffChain.schema.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/energywebfoundation/ew-asset-registry-lib.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/energywebfoundation/ew-asset-registry-lib/issues"
+  },
+  "homepage": "https://github.com/energywebfoundation/ew-asset-registry-lib#readme",
+  "dependencies": {
+    "ew-asset-registry-contracts-sonnen": "v0.2.0",
+    "ew-user-registry-contracts": "0.0.99",
+    "ew-user-registry-lib": "0.0.99",
+    "ew-utils-general-lib-sonnen": "0.2.0",
+    "ew-utils-testbackend": "v0.0.99",
+    "web3": "1.0.0-beta.37",
+    "winston": "3.2.1"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^2.2.48",
+    "@types/node": "^9.6.28",
+    "@types/web3": "1.0.14",
+    "chai": "^4.1.2",
+    "ganache-cli": "^6.1.8",
+    "mocha": "^5.2.0",
+    "typescript": "^2.9.2",
+    "typescript-json-schema": "^0.31.0"
+  },
+  "postinstall": "rm -f node_modules/web3/index.d.ts"
+}
