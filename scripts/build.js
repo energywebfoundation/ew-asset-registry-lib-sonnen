@@ -49,7 +49,8 @@ async function executeCommand(command, directory) {
 async function run() {
   console.log('EW-ASSET-REGISTRY-LIB-SONNEN: Building start...');
 
-  await executeCommand('npm run build', ROOT_DIRECTORY)
+  await executeCommand('npm run build-schemas', ROOT_DIRECTORY)
+//   await executeCommand('npm run build', ROOT_DIRECTORY)
 
   if (!(await fs.pathExists(`${ROOT_DIRECTORY}/dist/js/src`))) {
     await fs.move(`${ROOT_DIRECTORY}/dist/js`, `${ROOT_DIRECTORY}/dist/js-temp`);
