@@ -1,0 +1,87 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Compliance": {
+            "enum": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "type": "number"
+        },
+        "Type": {
+            "description": "TODO: in generalLib",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "type": "number"
+        }
+    },
+    "properties": {
+        "assetType": {
+            "$ref": "#/definitions/Type"
+        },
+        "capacityWh": {
+            "type": "number"
+        },
+        "city": {
+            "type": "string"
+        },
+        "complianceRegistry": {
+            "$ref": "#/definitions/Compliance"
+        },
+        "country": {
+            "type": "string"
+        },
+        "gpsLatitude": {
+            "type": "string"
+        },
+        "gpsLongitude": {
+            "type": "string"
+        },
+        "houseNumber": {
+            "type": "string"
+        },
+        "operationalSince": {
+            "type": "number"
+        },
+        "otherGreenAttributes": {
+            "type": "string"
+        },
+        "region": {
+            "type": "string"
+        },
+        "street": {
+            "type": "string"
+        },
+        "typeOfPublicSupport": {
+            "type": "string"
+        },
+        "zip": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "assetType",
+        "capacityWh",
+        "city",
+        "complianceRegistry",
+        "country",
+        "gpsLatitude",
+        "gpsLongitude",
+        "houseNumber",
+        "operationalSince",
+        "otherGreenAttributes",
+        "region",
+        "street",
+        "typeOfPublicSupport",
+        "zip"
+    ],
+    "type": "object"
+}
+

@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "capacityWh": {
+            "type": "number"
+        },
+        "city": {
+            "type": "string"
+        },
+        "country": {
+            "type": "string"
+        },
+        "gpsLatitude": {
+            "type": "string"
+        },
+        "gpsLongitude": {
+            "type": "string"
+        },
+        "houseNumber": {
+            "type": "string"
+        },
+        "operationalSince": {
+            "type": "number"
+        },
+        "region": {
+            "type": "string"
+        },
+        "street": {
+            "type": "string"
+        },
+        "zip": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "capacityWh",
+        "city",
+        "country",
+        "gpsLatitude",
+        "gpsLongitude",
+        "houseNumber",
+        "operationalSince",
+        "region",
+        "street",
+        "zip"
+    ],
+    "type": "object"
+}
+
