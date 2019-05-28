@@ -20,7 +20,7 @@
     "precompile-contracts": "rm -rf build/contracts",
     "compile-contracts": "node build/ts/utils/deployment/compile",
     "prebuild-ts": "rm -rf build/ts",
-    "build-ts": "rm -rf dist/js && node_modules/typescript/bin/tsc",
+    "build-ts": "rm -rf dist/js && tsc",
     "prebuild-schemas": "rm -rf dist/schemas && mkdir -p dist/schemas && rm -rf schemas && mkdir schemas",
     "build-schemas": "npm run build-schema:AssetPropertiesOffChain && npm run build-schema:ProducingAssetPropertiesOffChain && cp -R schemas dist/schemas",
     "build-schema:AssetPropertiesOffChain": "typescript-json-schema --ignoreErrors --required src/blockchain-facade/Asset.ts OffChainProperties > schemas/AssetPropertiesOffChain.schema.json ",
