@@ -25,7 +25,7 @@
     "build-schemas": "npm run build-schema:AssetPropertiesOffChain && npm run build-schema:ProducingAssetPropertiesOffChain && cp -R schemas dist/schemas",
     "build-schema:AssetPropertiesOffChain": "typescript-json-schema --ignoreErrors --required src/blockchain-facade/Asset.ts OffChainProperties > schemas/AssetPropertiesOffChain.schema.json ",
     "build-schema:ProducingAssetPropertiesOffChain": "typescript-json-schema --ignoreErrors --required src/blockchain-facade/ProducingAsset.ts OffChainProperties > schemas/ProducingAssetPropertiesOffChain.schema.json",
-    "prepare": "npm run build"
+    "prepare": "node scripts/build.js"
   },
   "dependencies": {
     "ew-asset-registry-contracts-sonnen": "v0.2.0",
@@ -42,6 +42,7 @@
     "@types/node": "9.6.48",
     "@types/web3": "1.0.14",
     "chai": "4.2.0",
+    "fs-extra": "^8.0.1",
     "ganache-cli": "6.4.3",
     "mocha": "5.2.0",
     "typescript": "2.9.2",
